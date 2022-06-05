@@ -124,7 +124,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_get_todo_error')
         from src.todoList import get_item
 
-        self.assertRaises(TypeError, get_item("",self.dynamodb))
+        self.assertIsNone(get_item("",self.dynamodb))
                 
         print ('End: test_get_todo_error')
     
