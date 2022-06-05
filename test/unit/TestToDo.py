@@ -50,7 +50,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('---------------------')
         print ('Start: test_get_table')
         from src.todoList import put_item
-        mitable = get_table(None)
+        mitable = get_table(self)
         self.assertIn(mitable, self.table.name)
         print ('End: test_get_table')
         
