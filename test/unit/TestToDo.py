@@ -47,7 +47,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('End: tearDown')
               
             
-    def test_create_todo_table(self)
+    def test_create_todo_table(self):
         print ('---------------------')
         print ('Start: test_create_todo_table')
         from src.todoList import create_todo_table
