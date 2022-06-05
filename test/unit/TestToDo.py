@@ -127,7 +127,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         responseGet = get_item("",self.dynamodb)
         print ('Response Get:' + str(responseGet)) 
         self.assertIsNone(responseGet)
-        self.assertIsNone(responseGet)
         print ('End: test_get_todo_error')
     
     
