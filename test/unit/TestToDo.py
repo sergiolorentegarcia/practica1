@@ -124,9 +124,8 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_get_todo_error')
         from src.todoList import get_item
 
-        responseGet = get_item("",self.dynamodb)
-        print ('Response Get:' + str(responseGet)) 
-        self.assertIsNone(responseGet)
+        self.assertIsNone(get_item("",self.dynamodb))
+                
         print ('End: test_get_todo_error')
     
     
