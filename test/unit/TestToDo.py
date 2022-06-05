@@ -53,9 +53,10 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.assertTrue(self.table_local)  # check if we got a result
 
         print('Table name:' + self.table.name)
-        tableName = os.environ['DYNAMODB_TABLE'];
+        tableName = os.environ;
         # check if the table name is 'ToDo'
-        self.assertIn(tableName, self.table.name)
+        pprint.pprint(dict(tableName), width = 1)
+        #self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
     
