@@ -69,6 +69,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         tableName = os.environ['JOB_BASE_NAME'];
         # check if the table name is 'ToDo'
         self.assertNotIn(tableName, self.table.name)
+        self.assertNotIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists_error')
         
@@ -125,6 +126,7 @@ class TestDatabaseFunctions(unittest.TestCase):
 
         responseGet = get_item("",self.dynamodb)
         print ('Response Get:' + str(responseGet)) 
+        self.assertIsNone(responseGet)
         self.assertIsNone(responseGet)
         print ('End: test_get_todo_error')
     
