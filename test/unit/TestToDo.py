@@ -6,7 +6,6 @@ from moto import mock_dynamodb2
 import sys
 import os
 import json
-import pprint
 
 @mock_dynamodb2
 class TestDatabaseFunctions(unittest.TestCase):
@@ -62,17 +61,16 @@ class TestDatabaseFunctions(unittest.TestCase):
     
     def test_table_exists_error(self):
         print ('---------------------')
-        print ('Start: test_table_exists')
+        print ('Start: test_table_exists_error')
         #self.assertTrue(self.table)  # check if we got a result
         #self.assertTrue(self.table_local)  # check if we got a result
 
         print('Table name:' + self.table.name)
-        tableName = os.environ;
+        tableName = os.environ['JOB_BASE_NAME'];
         # check if the table name is 'ToDo'
-        pprint.pprint(dict(tableName), width = 1)
-        #self.assertNotIn(tableName, self.table.name)
+        self.assertNotIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
-        print ('End: test_table_exists')
+        print ('End: test_table_exists_error')
         
     def test_put_todo(self):
         print ('---------------------')
