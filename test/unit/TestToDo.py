@@ -118,6 +118,18 @@ class TestDatabaseFunctions(unittest.TestCase):
             responseGet['text'])
         print ('End: test_get_todo')
     
+    def test_get_todo_error(self):
+        print ('---------------------')
+        print ('Start: test_get_todo')
+        from src.todoList import get_item
+
+        idItem = 'idcualquiera'
+        print ('Id item:' + idItem)
+        self.assertRaises(Exception, get_item(idItem,self.dynamodb)
+        
+        print ('End: test_get_todo_error')
+    
+    
     def test_list_todo(self):
         print ('---------------------')
         print ('Start: test_list_todo')
