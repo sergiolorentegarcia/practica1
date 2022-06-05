@@ -51,7 +51,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('---------------------')
         print ('Start: test_create_todo_table')
         from src.todoList import create_todo_table
-        miTable
+        miTable = create_todo_table(self.dynamodb)
         self.assertIn(miTable, self.table.name)
         print ('End: test_create_todo_table')
     
