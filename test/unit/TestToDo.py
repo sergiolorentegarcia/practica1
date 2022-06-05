@@ -46,7 +46,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.dynamodb = None
         print ('End: tearDown')
         
-    def test_get_table(self)
+    def test_get_table(self):
         print ('---------------------')
         print ('Start: test_get_table')
         from src.todoList import put_item
