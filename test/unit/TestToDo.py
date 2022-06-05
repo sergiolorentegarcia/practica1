@@ -59,16 +59,16 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
     
-    def test_table_non_exists(self):
+    def test_table_exists2(self):
         print ('---------------------')
-        print ('Start: test_table_non_exists')
+        print ('Start: test_table_exists')
         #self.assertTrue(self.table)  # check if we got a result
         #self.assertTrue(self.table_local)  # check if we got a result
 
         print('Table name:' + self.table.name)
-        tableName = 'Vacio';
-        # check if the table name is not 'ToDo'
-        self.assertNotIn(tableName, self.table.name)
+        tableName = os.environ['DYNAMODB_TABLE'];
+        # check if the table name is 'ToDo'
+        self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
         
