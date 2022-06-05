@@ -59,14 +59,14 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
         
-    def test_table_non_exists():
+    def test_table_non_exists(self):
         print ('---------------------')
         print ('Start: test_table_non_exists')
         #self.assertTrue()  # check if we got a result
         #self.assertTrue()  # check if we got a result
-
-        print('Table name:' + None)
         tableName = None
+        print('Table name:' + tableName)
+        
         # check if the table name is 'ToDo'
         self.assertIn(tableName, None)
         #self.assertIn('todoTable', self.table_local.name)
