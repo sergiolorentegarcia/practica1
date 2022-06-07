@@ -25,14 +25,15 @@ class TestDatabaseFunctions(unittest.TestCase):
             category=DeprecationWarning,
             message="Using or importing.*")
         """Create the mock database and table"""
+
         self.dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
         self.is_local = 'true'
         self.uuid = "123e4567-e89b-12d3-a456-426614174000"
         self.text = "Aprender DevOps y Cloud en la UNIR"
-
         from src.todoList import create_todo_table
         self.table = create_todo_table(self.dynamodb)
         #self.table_local = create_todo_table()
+
         print ('End: setUp')
 
     def tearDown(self):
@@ -44,7 +45,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.table_local.delete()
         self.dynamodb = None
         print ('End: tearDown')
-
+                
     def test_table_exists(self):
         print ('---------------------')
         print ('Start: test_table_exists')
@@ -57,8 +58,21 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
-        
+    
+    def test_table_exists_error(self):
+        print ('---------------------')
+        print ('Start: test_table_exists_error')
+        #self.assertTrue(self.table)  # check if we got a result
+        #self.assertTrue(self.table_local)  # check if we got a result
 
+        print('Table name:' + self.table.name)
+        tableName = os.environ['JOB_BASE_NAME'];
+        # check if the table name is 'ToDo'
+        self.assertNotIn(tableName, self.table.name)
+        self.assertNotIn(tableName, self.table.name)
+        #self.assertIn('todoTable', self.table_local.name)
+        print ('End: test_table_exists_error')
+        
     def test_put_todo(self):
         print ('---------------------')
         print ('Start: test_put_todo')
@@ -104,6 +118,16 @@ class TestDatabaseFunctions(unittest.TestCase):
             self.text,
             responseGet['text'])
         print ('End: test_get_todo')
+    
+    def test_get_todo_error(self):
+        print ('---------------------')
+        print ('Start: test_get_todo_error')
+        from src.todoList import get_item
+
+        self.assertIsNone(get_item("",self.dynamodb))
+                
+        print ('End: test_get_todo_error')
+    
     
     def test_list_todo(self):
         print ('---------------------')
